@@ -472,6 +472,7 @@ function ending(){
     </div>`).join('');
 
   caseCount.textContent = 'AUDITION SLUT';
+  window.scrollTo({top: 0, behavior: 'smooth'});
   app.innerHTML = `
     <div class="screen fade" style="border-color:${border}">
       <div class="kicker" style="color:${farve}">Ligaen har set dig</div>
@@ -487,7 +488,7 @@ function ending(){
         <div class="lsub">Jo flere sager du redder, jo højere i ligaen rækker du. Her er de andre, du kunne have imponeret, eller skuffet.</div>
         ${leagueRows}
       </div>
-      <div class="actions" style="justify-content:flex-start;margin-top:22px;flex-wrap:wrap;gap:10px"><button class="btn go big" id="again">${r >= 5 ? 'Tag en ny runde' : 'Se om du kan få det gode tilbud'} ▸</button><button class="btn big" id="share">Del resultat ▸</button></div>
+      <div class="actions" style="justify-content:flex-start;margin-top:22px;flex-wrap:wrap;gap:10px"><button class="btn go big" id="again">${r >= 5 ? 'Tag en ny runde' : 'Se om du kan få det gode tilbud'} ▸</button><button class="btn big" id="share" style="background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:700">📤 Del med en ven – lad dem prøve!</button></div>
     </div>`;
   document.getElementById('again').onclick = startGame;
   const shareBtn = document.getElementById('share');
@@ -498,7 +499,7 @@ function ending(){
     } else if(navigator.clipboard){
       navigator.clipboard.writeText(text + '\n' + location.href).then(()=>{
         shareBtn.textContent = 'Kopieret ✓';
-        setTimeout(()=>{ shareBtn.textContent = 'Del resultat ▸'; }, 2000);
+        setTimeout(()=>{ shareBtn.textContent = '📤 Del med en ven – lad dem prøve!'; }, 2000);
       }).catch(()=>{});
     }
   };
